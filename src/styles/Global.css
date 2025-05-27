@@ -1,0 +1,64 @@
+:root {
+  --bg: #f8fbff;
+  --sidebar-bg: #eef3fc;
+  --sidebar-active: #ffffff;
+  --primary: #4b5bfd;
+  --purple-dark: #3741bf;
+  --gray-text: #8e98b5;
+  --card-bg: #ffffff;
+  --progress-red: #f35b5b;
+  --progress-green: #3ad29f;
+  --progress-orange: #ff8f4c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--bg);
+}
+
+.app-shell {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+/* ─────────────  TABLETS  ≤ 1024 px  ───────────── */
+@media (max-width: 1024px) {
+  .app-shell {
+    flex-direction: column;         /* stack Sidebar / Main / RightPanel   */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* grow main column & shrink side panels */
+  .dashboard-main       { order: 1; width: 100%; }
+  .right-panel          { order: 2; width: 100%; }
+}
+
+/* ─────────────  MOBILES  ≤ 768 px  ───────────── */
+@media (max-width: 768px) {
+  /* hide sidebar completely on phones */
+  .sidebar { display: none; }
+
+  .app-shell {
+    padding: 16px;
+  }
+
+  /* make search box use full width */
+  .search-wrapper       { width: 100%; }
+  .search-wrapper input { width: 100%; }
+}
+
+/* ─────────────  SUPER-SMALL  ≤ 576 px  ───────────── */
+@media (max-width: 576px) {
+  .right-panel,
+  .dashboard-main {
+    padding: 16px;
+    border-radius: 16px;
+  }
+}
